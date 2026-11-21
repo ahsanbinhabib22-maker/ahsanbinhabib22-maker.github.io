@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHSAN | প্রতিদিনের অনুভূতি</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#080808;
+ color:#f5f5f5;
+ text-align:center;
+}
+header{padding:45px 15px 25px}
+h1{
+ color:#d6ad55;
+ font-size:42px;
+ letter-spacing:7px;
+ margin:10px;
+}
+.subtitle{color:#aaa;font-size:16px}
+.line{width:65px;height:2px;background:#c9a34e;margin:22px auto}
+main{max-width:650px;margin:25px auto;padding:20px}
+.card{
+ background:#121212;
+ border:1px solid #80652f;
+ border-radius:15px;
+ padding:28px 20px;
+ box-shadow:0 5px 25px #000;
+}
+h2{color:#d6ad55;font-size:21px}
+#caption{
+ font-size:19px;
+ line-height:1.9;
+ color:#eee;
+ margin:25px 0;
+}
+button{
+ background:#c9a34e;
+ color:#080808;
+ border:0;
+ padding:13px 22px;
+ border-radius:7px;
+ margin:6px;
+ font-size:15px;
+ font-weight:bold;
+ cursor:pointer;
+}
+button:hover{background:#f0d28a}
+footer{color:#777;padding:35px 10px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>AHSAN</h1>
+<p class="subtitle">প্রতিদিনের অনুভূতি</p>
+<div class="line"></div>
+</header>
+<main>
+<div class="card">
+<h2>আজকের অনুভূতি</h2>
+<p id="caption">জীবন সুন্দর হয় তখনই, যখন আমরা অন্যের ভুল খোঁজার আগে নিজের ভুলগুলো সংশোধন করতে শিখি।</p>
+<button onclick="copyText()">কপি করুন</button>
+<button onclick="shareText()">শেয়ার করুন</button>
+</div>
+</main>
+<footer>© 2026 AHSAN — All Rights Reserved</footer>
+<script>
+function copyText(){
+ const text=document.getElementById('caption').innerText;
+ if(navigator.clipboard){
+ navigator.clipboard.writeText(text).then(()=>alert('কপি হয়েছে!'));
+ }else{
+ alert('এই ব্রাউজারে কপি করা যাচ্ছে না।');
+ }
+}
+function shareText(){
+ const text=document.getElementById('caption').innerText;
+ if(navigator.share){
+ navigator.share({text:text});
+ }else{
+ copyText();
+ }
+}
+</script>
+</body>
+</html>
